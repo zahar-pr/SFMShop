@@ -1,0 +1,37 @@
+commit 4df17cb349f831f3cae5aab9d9e2b8f84fe23c3a
+Author: zahar-pr <jedai.in.it@gmail.com>
+Date:   Sat Mar 14 13:05:48 2026 +0500
+
+    Добавлен метод get_category в Product
+
+ product.py | 8 +-------
+ 1 file changed, 1 insertion(+), 7 deletions(-)
+
+commit 5ce06833b0497eb59e926a5ee04fd473cfa1aac7
+Author: zahar-pr <jedai.in.it@gmail.com>
+Date:   Sat Mar 14 12:58:59 2026 +0500
+
+    Добавлен метод get_category в Product
+
+ product.py | 9 +++++++++
+ 1 file changed, 9 insertions(+)
+
+commit 08ecbe6b06da8554f8fa501ee9c546b41d584912
+Author: zahar-pr <jedai.in.it@gmail.com>
+Date:   Sat Mar 14 12:30:03 2026 +0500
+
+    add all modules
+
+ .idea/.gitignore                       |   3 +++
+ __pycache__/exceptions.cpython-310.pyc | Bin 0 -> 565 bytes
+ __pycache__/order.cpython-310.pyc      | Bin 0 -> 1035 bytes
+ __pycache__/payment.cpython-310.pyc    | Bin 0 -> 1751 bytes
+ __pycache__/product.cpython-310.pyc    | Bin 0 -> 1488 bytes
+ __pycache__/user.cpython-310.pyc       | Bin 0 -> 701 bytes
+ exceptions.py                          |   8 +++++++
+ main.py                                |  38 +++++++++++++++++++++++++++++++++
+ order.py                               |  17 +++++++++++++++
+ payment.py                             |  32 +++++++++++++++++++++++++++
+ product.py                             |  30 ++++++++++++++++++++++++++
+ user.py                                |  12 +++++++++++
+ 12 files changed, 140 insertions(+)

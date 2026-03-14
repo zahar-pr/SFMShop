@@ -1,0 +1,14 @@
+*   9c87f19 WIP on add-logging: 6a03f6git_history.txt
+0 Добавлена система логирования
+|\  
+| * 6640328 index on add-logging: 6a03f60 Добавлена система логирования
+|/  
+* 6a03f60 Добавлена система логирования
+*   9d7ccd1 Объединены изменения из main
+|\  
+| * 4df17cb Добавлен метод get_category в Product
+| * 5ce0683 Добавлен метод get_category в Product
+* | 7a07e5a Добавлен метод calculate_shipping в Product
+* | 375a7cf Добавлены методы управления складом в класс Product
+|/  
+* 08ecbe6 add all modules
