@@ -1,0 +1,25 @@
+commit 4df17cb349f831f3cae5aab9d9e2b8f84fe23c3a
+Author: zahar-pr <jedai.in.it@gmail.com>
+Date:   Sat Mar 14 13:05:48 2026 +0500
+
+    Добавлен метод get_category в Product
+
+diff --git a/product.py b/product.py
+index 2ca7076..7d88532 100644
+--- a/product.py
++++ b/product.py
+@@ -12,13 +12,7 @@ class Product:
+             raise ValidationError("Цена не может быть отрицательной")
+         self.price = price
+ 
+-    def check_stock(self):
+-        pass
+-
+-    def update_stock(self):
+-        pass
+-
+-    def calculate_shipping():
++    def get_category(self):
+         pass
+ 
+     def __str__(self):

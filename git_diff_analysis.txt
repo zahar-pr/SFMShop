@@ -43,17 +43,17 @@ index c00a964..e69de29 100644
 @@ -1,14 +0,0 @@
 -*   9c87f19 WIP on add-logging: 6a03f6git_history.txt
 -0 Добавлена система логирования
--|\  
+-|\
 -| * 6640328 index on add-logging: 6a03f60 Добавлена система логирования
--|/  
+-|/
 -* 6a03f60 Добавлена система логирования
 -*   9d7ccd1 Объединены изменения из main
--|\  
+-|\
 -| * 4df17cb Добавлен метод get_category в Product
 -| * 5ce0683 Добавлен метод get_category в Product
 -* | 7a07e5a Добавлен метод calculate_shipping в Product
 -* | 375a7cf Добавлены методы управления складом в класс Product
--|/  
+-|/
 -* 08ecbe6 add all modules
 diff --git a/git_statistics.txt b/git_statistics.txt
 index 107e536..e69de29 100644
@@ -128,7 +128,7 @@ index 15bd26f..e69de29 100644
 -
 -### Основная ветка
 -
--- **master** — основная ветка проекта.  
+-- **master** — основная ветка проекта.
 -  В ней хранится стабильная версия кода. Все feature-ветки в конечном итоге сливаются в неё после завершения разработки.
 -
 -### Feature-ветки
@@ -137,8 +137,8 @@ index 15bd26f..e69de29 100644
 -
 -Созданные ветки:
 -
--- **feature/add-logging**  
--  Используется для реализации системы логирования.  
+-- **feature/add-logging**
+-  Используется для реализации системы логирования.
 -  В рамках ветки был создан файл:
 -
 diff --git a/product.py b/product.py
@@ -148,7 +148,7 @@ index 7d88532..020e468 100644
 @@ -12,6 +12,15 @@ class Product:
              raise ValidationError("Цена не может быть отрицательной")
          self.price = price
- 
+
 +    def check_stock(self):
 +        pass
 +
@@ -160,7 +160,7 @@ index 7d88532..020e468 100644
 +
      def get_category(self):
          pass
- 
+
 diff --git a/utils/logger.py b/utils/logger.py
 new file mode 100644
 index 0000000..3fa1635
