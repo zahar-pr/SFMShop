@@ -169,3 +169,398 @@ index 0000000..3fa1635
 @@ -0,0 +1 @@
 +print("СИСТЕМА ЛОГИРОВАНИЯ")
 \ No newline at end of file
+diff --git a/git_diff_analysis.txt b/git_diff_analysis.txt
+deleted file mode 100644
+index bc1549b..0000000
+--- a/git_diff_analysis.txt
++++ /dev/null
+@@ -1,171 +0,0 @@
+-diff --git a/git_author.txt b/git_author.txt
+-deleted file mode 100644
+-index 6b64fb7..0000000
+---- a/git_author.txt
+-+++ /dev/null
+-@@ -1,17 +0,0 @@
+--commit 4df17cb349f831f3cae5aab9d9e2b8f84fe23c3a
+--Author: zahar-pr <jedai.in.it@gmail.com>
+--Date:   Sat Mar 14 13:05:48 2026 +0500
+--
+--    Добавлен метод get_category в Product
+--
+--commit 5ce06833b0497eb59e926a5ee04fd473cfa1aac7
+--Author: zahar-pr <jedai.in.it@gmail.com>
+--Date:   Sat Mar 14 12:58:59 2026 +0500
+--
+--    Добавлен метод get_category в Product
+--
+--commit 08ecbe6b06da8554f8fa501ee9c546b41d584912
+--Author: zahar-pr <jedai.in.it@gmail.com>
+--Date:   Sat Mar 14 12:30:03 2026 +0500
+--
+--    add all modules
+-diff --git a/git_branches.txt b/git_branches.txt
+-index 20a790a..e69de29 100644
+---- a/git_branches.txt
+-+++ b/git_branches.txt
+-@@ -1,7 +0,0 @@
+--  feature/add-inventory-management
+--  feature/add-logging
+--  feature/add-shipping
+--* master
+--  remotes/origin/feature/add-inventory-management
+--  remotes/origin/feature/add-shipping
+--  remotes/origin/master
+-diff --git a/git_diff_logging.txt b/git_diff_logging.txt
+-deleted file mode 100644
+-index e69de29..0000000
+-diff --git a/git_history.txt b/git_history.txt
+-index c00a964..e69de29 100644
+---- a/git_history.txt
+-+++ b/git_history.txt
+-@@ -1,14 +0,0 @@
+--*   9c87f19 WIP on add-logging: 6a03f6git_history.txt
+--0 Добавлена система логирования
+--|\
+--| * 6640328 index on add-logging: 6a03f60 Добавлена система логирования
+--|/
+--* 6a03f60 Добавлена система логирования
+--*   9d7ccd1 Объединены изменения из main
+--|\
+--| * 4df17cb Добавлен метод get_category в Product
+--| * 5ce0683 Добавлен метод get_category в Product
+--* | 7a07e5a Добавлен метод calculate_shipping в Product
+--* | 375a7cf Добавлены методы управления складом в класс Product
+--|/
+--* 08ecbe6 add all modules
+-diff --git a/git_statistics.txt b/git_statistics.txt
+-index 107e536..e69de29 100644
+---- a/git_statistics.txt
+-+++ b/git_statistics.txt
+-@@ -1,37 +0,0 @@
+--commit 4df17cb349f831f3cae5aab9d9e2b8f84fe23c3a
+--Author: zahar-pr <jedai.in.it@gmail.com>
+--Date:   Sat Mar 14 13:05:48 2026 +0500
+--
+--    Добавлен метод get_category в Product
+--
+-- product.py | 8 +-------
+-- 1 file changed, 1 insertion(+), 7 deletions(-)
+--
+--commit 5ce06833b0497eb59e926a5ee04fd473cfa1aac7
+--Author: zahar-pr <jedai.in.it@gmail.com>
+--Date:   Sat Mar 14 12:58:59 2026 +0500
+--
+--    Добавлен метод get_category в Product
+--
+-- product.py | 9 +++++++++
+-- 1 file changed, 9 insertions(+)
+--
+--commit 08ecbe6b06da8554f8fa501ee9c546b41d584912
+--Author: zahar-pr <jedai.in.it@gmail.com>
+--Date:   Sat Mar 14 12:30:03 2026 +0500
+--
+--    add all modules
+--
+-- .idea/.gitignore                       |   3 +++
+-- __pycache__/exceptions.cpython-310.pyc | Bin 0 -> 565 bytes
+-- __pycache__/order.cpython-310.pyc      | Bin 0 -> 1035 bytes
+-- __pycache__/payment.cpython-310.pyc    | Bin 0 -> 1751 bytes
+-- __pycache__/product.cpython-310.pyc    | Bin 0 -> 1488 bytes
+-- __pycache__/user.cpython-310.pyc       | Bin 0 -> 701 bytes
+-- exceptions.py                          |   8 +++++++
+-- main.py                                |  38 +++++++++++++++++++++++++++++++++
+-- order.py                               |  17 +++++++++++++++
+-- payment.py                             |  32 +++++++++++++++++++++++++++
+-- product.py                             |  30 ++++++++++++++++++++++++++
+-- user.py                                |  12 +++++++++++
+-- 12 files changed, 140 insertions(+)
+-diff --git a/git_workflow_summary.md b/git_workflow_summary.md
+-index 15bd26f..e69de29 100644
+---- a/git_workflow_summary.md
+-+++ b/git_workflow_summary.md
+-@@ -1,39 +0,0 @@
+--# Git Workflow для проекта SFMShop
+--
+--## Использованные команды Git
+--
+--- **git init** — инициализация локального Git-репозитория.
+--- **git add** — добавление файлов в staging area перед созданием коммита.
+--- **git commit** — фиксация изменений в истории репозитория.
+--- **git log** — просмотр истории коммитов.
+--- **git log --oneline --graph --all** — компактная визуализация истории коммитов со структурой веток.
+--- **git log --stat** — просмотр статистики изменений по файлам в коммитах.
+--- **git branch** — просмотр и управление ветками.
+--- **git checkout** — переключение между ветками или коммитами.
+--- **git diff** — просмотр различий между ветками, коммитами или файлами.
+--- **git show** — просмотр содержимого конкретного коммита.
+--- **git push** — отправка локальных изменений в удалённый репозиторий.
+--- **git pull** — получение изменений из удалённого репозитория.
+--- **git merge** — объединение изменений из одной ветки в другую.
+--
+-----
+--
+--# Созданные ветки
+--
+--В проекте используется простая стратегия ветвления, основанная на **master + feature branches**.
+--
+--### Основная ветка
+--
+--- **master** — основная ветка проекта.
+--  В ней хранится стабильная версия кода. Все feature-ветки в конечном итоге сливаются в неё после завершения разработки.
+--
+--### Feature-ветки
+--
+--Feature-ветки используются для разработки отдельных функциональных возможностей без риска сломать основную ветку.
+--
+--Созданные ветки:
+--
+--- **feature/add-logging**
+--  Используется для реализации системы логирования.
+--  В рамках ветки был создан файл:
+--
+-diff --git a/product.py b/product.py
+-index 7d88532..020e468 100644
+---- a/product.py
+-+++ b/product.py
+-@@ -12,6 +12,15 @@ class Product:
+-             raise ValidationError("Цена не может быть отрицательной")
+-         self.price = price
+-
+-+    def check_stock(self):
+-+        pass
+-+
+-+    def update_stock(self):
+-+        pass
+-+
+-+    def calculate_shipping():
+-+        pass
+-+
+-     def get_category(self):
+-         pass
+-
+-diff --git a/utils/logger.py b/utils/logger.py
+-new file mode 100644
+-index 0000000..3fa1635
+---- /dev/null
+-+++ b/utils/logger.py
+-@@ -0,0 +1 @@
+-+print("СИСТЕМА ЛОГИРОВАНИЯ")
+-\ No newline at end of file
+diff --git a/git_diff_caching.txt b/git_diff_caching.txt
+deleted file mode 100644
+index e69de29..0000000
+diff --git a/git_diff_logging.txt b/git_diff_logging.txt
+index 72c03fe..e69de29 100644
+--- a/git_diff_logging.txt
++++ b/git_diff_logging.txt
+@@ -1,171 +0,0 @@
+-diff --git a/git_author.txt b/git_author.txt
+-deleted file mode 100644
+-index 6b64fb7..0000000
+---- a/git_author.txt
+-+++ /dev/null
+-@@ -1,17 +0,0 @@
+--commit 4df17cb349f831f3cae5aab9d9e2b8f84fe23c3a
+--Author: zahar-pr <jedai.in.it@gmail.com>
+--Date:   Sat Mar 14 13:05:48 2026 +0500
+--
+--    Добавлен метод get_category в Product
+--
+--commit 5ce06833b0497eb59e926a5ee04fd473cfa1aac7
+--Author: zahar-pr <jedai.in.it@gmail.com>
+--Date:   Sat Mar 14 12:58:59 2026 +0500
+--
+--    Добавлен метод get_category в Product
+--
+--commit 08ecbe6b06da8554f8fa501ee9c546b41d584912
+--Author: zahar-pr <jedai.in.it@gmail.com>
+--Date:   Sat Mar 14 12:30:03 2026 +0500
+--
+--    add all modules
+-diff --git a/git_branches.txt b/git_branches.txt
+-index 20a790a..e69de29 100644
+---- a/git_branches.txt
+-+++ b/git_branches.txt
+-@@ -1,7 +0,0 @@
+--  feature/add-inventory-management
+--  feature/add-logging
+--  feature/add-shipping
+--* master
+--  remotes/origin/feature/add-inventory-management
+--  remotes/origin/feature/add-shipping
+--  remotes/origin/master
+-diff --git a/git_diff_logging.txt b/git_diff_logging.txt
+-deleted file mode 100644
+-index e69de29..0000000
+-diff --git a/git_history.txt b/git_history.txt
+-index c00a964..e69de29 100644
+---- a/git_history.txt
+-+++ b/git_history.txt
+-@@ -1,14 +0,0 @@
+--*   9c87f19 WIP on add-logging: 6a03f6git_history.txt
+--0 Добавлена система логирования
+--|\
+--| * 6640328 index on add-logging: 6a03f60 Добавлена система логирования
+--|/
+--* 6a03f60 Добавлена система логирования
+--*   9d7ccd1 Объединены изменения из main
+--|\
+--| * 4df17cb Добавлен метод get_category в Product
+--| * 5ce0683 Добавлен метод get_category в Product
+--* | 7a07e5a Добавлен метод calculate_shipping в Product
+--* | 375a7cf Добавлены методы управления складом в класс Product
+--|/
+--* 08ecbe6 add all modules
+-diff --git a/git_statistics.txt b/git_statistics.txt
+-index 107e536..e69de29 100644
+---- a/git_statistics.txt
+-+++ b/git_statistics.txt
+-@@ -1,37 +0,0 @@
+--commit 4df17cb349f831f3cae5aab9d9e2b8f84fe23c3a
+--Author: zahar-pr <jedai.in.it@gmail.com>
+--Date:   Sat Mar 14 13:05:48 2026 +0500
+--
+--    Добавлен метод get_category в Product
+--
+-- product.py | 8 +-------
+-- 1 file changed, 1 insertion(+), 7 deletions(-)
+--
+--commit 5ce06833b0497eb59e926a5ee04fd473cfa1aac7
+--Author: zahar-pr <jedai.in.it@gmail.com>
+--Date:   Sat Mar 14 12:58:59 2026 +0500
+--
+--    Добавлен метод get_category в Product
+--
+-- product.py | 9 +++++++++
+-- 1 file changed, 9 insertions(+)
+--
+--commit 08ecbe6b06da8554f8fa501ee9c546b41d584912
+--Author: zahar-pr <jedai.in.it@gmail.com>
+--Date:   Sat Mar 14 12:30:03 2026 +0500
+--
+--    add all modules
+--
+-- .idea/.gitignore                       |   3 +++
+-- __pycache__/exceptions.cpython-310.pyc | Bin 0 -> 565 bytes
+-- __pycache__/order.cpython-310.pyc      | Bin 0 -> 1035 bytes
+-- __pycache__/payment.cpython-310.pyc    | Bin 0 -> 1751 bytes
+-- __pycache__/product.cpython-310.pyc    | Bin 0 -> 1488 bytes
+-- __pycache__/user.cpython-310.pyc       | Bin 0 -> 701 bytes
+-- exceptions.py                          |   8 +++++++
+-- main.py                                |  38 +++++++++++++++++++++++++++++++++
+-- order.py                               |  17 +++++++++++++++
+-- payment.py                             |  32 +++++++++++++++++++++++++++
+-- product.py                             |  30 ++++++++++++++++++++++++++
+-- user.py                                |  12 +++++++++++
+-- 12 files changed, 140 insertions(+)
+-diff --git a/git_workflow_summary.md b/git_workflow_summary.md
+-index 15bd26f..e69de29 100644
+---- a/git_workflow_summary.md
+-+++ b/git_workflow_summary.md
+-@@ -1,39 +0,0 @@
+--# Git Workflow для проекта SFMShop
+--
+--## Использованные команды Git
+--
+--- **git init** — инициализация локального Git-репозитория.
+--- **git add** — добавление файлов в staging area перед созданием коммита.
+--- **git commit** — фиксация изменений в истории репозитория.
+--- **git log** — просмотр истории коммитов.
+--- **git log --oneline --graph --all** — компактная визуализация истории коммитов со структурой веток.
+--- **git log --stat** — просмотр статистики изменений по файлам в коммитах.
+--- **git branch** — просмотр и управление ветками.
+--- **git checkout** — переключение между ветками или коммитами.
+--- **git diff** — просмотр различий между ветками, коммитами или файлами.
+--- **git show** — просмотр содержимого конкретного коммита.
+--- **git push** — отправка локальных изменений в удалённый репозиторий.
+--- **git pull** — получение изменений из удалённого репозитория.
+--- **git merge** — объединение изменений из одной ветки в другую.
+--
+-----
+--
+--# Созданные ветки
+--
+--В проекте используется простая стратегия ветвления, основанная на **master + feature branches**.
+--
+--### Основная ветка
+--
+--- **master** — основная ветка проекта.
+--  В ней хранится стабильная версия кода. Все feature-ветки в конечном итоге сливаются в неё после завершения разработки.
+--
+--### Feature-ветки
+--
+--Feature-ветки используются для разработки отдельных функциональных возможностей без риска сломать основную ветку.
+--
+--Созданные ветки:
+--
+--- **feature/add-logging**
+--  Используется для реализации системы логирования.
+--  В рамках ветки был создан файл:
+--
+-diff --git a/product.py b/product.py
+-index 7d88532..020e468 100644
+---- a/product.py
+-+++ b/product.py
+-@@ -12,6 +12,15 @@ class Product:
+-             raise ValidationError("Цена не может быть отрицательной")
+-         self.price = price
+-
+-+    def check_stock(self):
+-+        pass
+-+
+-+    def update_stock(self):
+-+        pass
+-+
+-+    def calculate_shipping():
+-+        pass
+-+
+-     def get_category(self):
+-         pass
+-
+-diff --git a/utils/logger.py b/utils/logger.py
+-new file mode 100644
+-index 0000000..3fa1635
+---- /dev/null
+-+++ b/utils/logger.py
+-@@ -0,0 +1 @@
+-+print("СИСТЕМА ЛОГИРОВАНИЯ")
+-\ No newline at end of file
+diff --git a/git_show_example.txt b/git_show_example.txt
+deleted file mode 100644
+index ba374a9..0000000
+--- a/git_show_example.txt
++++ /dev/null
+@@ -1,25 +0,0 @@
+-commit 4df17cb349f831f3cae5aab9d9e2b8f84fe23c3a
+-Author: zahar-pr <jedai.in.it@gmail.com>
+-Date:   Sat Mar 14 13:05:48 2026 +0500
+-
+-    Добавлен метод get_category в Product
+-
+-diff --git a/product.py b/product.py
+-index 2ca7076..7d88532 100644
+---- a/product.py
+-+++ b/product.py
+-@@ -12,13 +12,7 @@ class Product:
+-             raise ValidationError("Цена не может быть отрицательной")
+-         self.price = price
+-
+--    def check_stock(self):
+--        pass
+--
+--    def update_stock(self):
+--        pass
+--
+--    def calculate_shipping():
+-+    def get_category(self):
+-         pass
+-
+-     def __str__(self):
+diff --git a/utils/cache.py b/utils/cache.py
+new file mode 100644
+index 0000000..96de7bb
+--- /dev/null
++++ b/utils/cache.py
+@@ -0,0 +1 @@
++print("СИСТЕМА КЭШИРОВАНИЯ")
+\ No newline at end of file
