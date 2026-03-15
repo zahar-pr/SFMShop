@@ -45,13 +45,32 @@ def update_product_price(conn, product_id, new_price):
     print(f"Цена обновлена: {new_price}")
 
 
+def get_user_by_id(conn, user_id) -> dict | None:
+    with conn.cursor() as cursor:
+        cursor.execute("""
+            SELECT *
+            FROM users
+            WHERE id = %s
+        """, (user_id,))
+        result = cursor.fetchall()
+        return result if result != [] else ValueError(f"Пользователь с id = {user_id} не найден")
+
+
+def delete_order(conn, order_id):
+    with conn.cursor() as cursor:
+        cursor.execute("""
+            DELETE FROM orders
+            WHERE id = %s
+        """, (order_id,))
+        result = cursor.fetchall()
+        return result if result != [] else ValueError(f"Заказ с id = {order_id} не найден")
+
+
 def main():
-    with PostgresConnection("localhost", "SFMShop", "postgres", "postgres") as conn:
-        add_product(conn, "Ноутбук", 50000, 10)
-        products = get_all_products(conn)
-        for item in products:
-            print(item)
-        update_product_price(conn, 1, 45000)
+    with PostgresConnection("localhost", "sfmshop", "postgres", "postgres") as conn:
+        print(get_user_by_id(conn, 100))
+        delete_order(conn, 2)
+
 
 
 if __name__ == "__main__":
