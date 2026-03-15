@@ -1,10 +1,9 @@
-import psycopg2
 from connection import PostgresConnection
 
 
 def get_orders_with_products(conn, user_id):
     cursor = conn.cursor()
-    cursor.execute(f"""
+    cursor.execute("""
         SELECT 
             orders.id AS order_id,
             products.name AS product_name,
@@ -13,9 +12,9 @@ def get_orders_with_products(conn, user_id):
         FROM orders
         INNER JOIN order_items ON orders.id = order_items.order_id
         INNER JOIN products ON order_items.product_id = products.id
-        WHERE orders.user_id = {user_id}
+        WHERE orders.user_id = %s
         ORDER BY orders.id
-    """)
+    """, (user_id,))
     results = cursor.fetchall()
     return results
 
@@ -23,11 +22,15 @@ def get_orders_with_products(conn, user_id):
 def get_order_statistics(conn):
     cursor = conn.cursor()
     cursor.execute("""
-        SELECT COUNT(orders), SUM(order_items.quantity)
-        FROM orders
-        INNER JOIN order_items ON orders.id = order_items.order_id
-        INNER JOIN products ON order_items.product_id = products.id
-        GROUP BY orders.user_id
+        SELECT 
+            users.id,
+            COUNT(orders.id) AS orders_count,
+            SUM(order_items.quantity * products.price) AS total_sum
+        FROM users
+        JOIN orders ON users.id = orders.userid
+        JOIN order_items ON orders.id = order_items.orderid
+        JOIN products ON order_items.productid = products.id
+        GROUP BY users.id;
     """)
     result = cursor.fetchall()
     return result
@@ -35,7 +38,7 @@ def get_order_statistics(conn):
 
 def get_top_products(conn, limit=5):
     cursor = conn.cursor()
-    cursor.execute(f"""
+    cursor.execute("""
         SELECT 
             products.name, 
             SUM(order_items.quantity)
@@ -44,8 +47,8 @@ def get_top_products(conn, limit=5):
         INNER JOIN products ON order_items.product_id = products.id
         GROUP BY products.name
         ORDER BY SUM(order_items.quantity) DESC
-        LIMIT {limit};
-    """)
+        LIMIT %s;
+    """, (limit,))
     result = cursor.fetchall()
     return result
 
@@ -64,7 +67,7 @@ def get_user_order_history(conn, user_id):
         INNER JOIN order_items ON order_items.orderid = orders.id
         INNER JOIN products ON order_items.productid = products.id
         WHERE users.id = %s
-        ORDER BY products.price DESC
+        ORDER BY createdat ASC
     """, (user_id,))
     result = cursor.fetchall()
     return result
@@ -79,6 +82,8 @@ def main():
         # print(get_top_products(conn))
 
         print(get_user_order_history(conn, 2))
+
+        print(get_order_statistics(conn))
 
 
 if __name__ == "__main__":
