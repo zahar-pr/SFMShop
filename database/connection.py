@@ -32,6 +32,23 @@ class PostgresConnection:
         self.conn.close()
 
 
+def create_user(conn, name, email):
+    try:
+        with conn.cursor() as cursor:
+            cursor.execute("""
+                   INSERT INTO users (name, email)
+                   VALUES (%s, %s)
+                   RETURNING id
+               """, (name, email))
+
+            user_id = cursor.fetchone()[0]
+            return user_id
+    except Error as e:
+        print(f"Ошибка при создании пользователя: {e}")
+        return None
+
+
+
 def add_product(conn, name, price, quantity):
     try:
         with conn.cursor() as cursor:
@@ -75,8 +92,8 @@ def get_user_by_id(conn, user_id) -> dict | None:
                 FROM users
                 WHERE id = %s
             """, (user_id,))
-            result = cursor.fetchall()
-            return result if result != [] else ValueError(f"Пользователь с id = {user_id} не найден")
+            result = cursor.fetchone()
+            return result if result else None
     except Error as e:
         print(f"Ошибка при получении пользователя: {e}")
         return None
@@ -89,21 +106,15 @@ def delete_order(conn, order_id):
                 DELETE FROM orders
                 WHERE id = %s
             """, (order_id,))
-            result = cursor.fetchall()
-            return result if result != [] else ValueError(f"Заказ с id = {order_id} не найден")
+            count_delete_string = cursor.rowcount()
+            return count_delete_string if count_delete_string != [] else ValueError(f"Заказ с id = {order_id} не найден")
     except Error as e:
         print(f"Ошибка при удалении заказа: {e}")
         return None
 
 
 def main():
-    try:
-        with PostgresConnection("localhost", "sfmshop", "postgres", "postgres") as conn:
-            print(get_user_by_id(conn, 100))
-            delete_order(conn, 2)
-    except Error as e:
-        print(f"Ошибка подключения к БД: {e}")
-        return None
+    pass
 
 
 if __name__ == "__main__":

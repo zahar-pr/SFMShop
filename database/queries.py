@@ -1,6 +1,6 @@
 from psycopg2 import Error
 
-from connection import PostgresConnection
+from database.connection import PostgresConnection
 
 
 def get_orders_with_products(conn, user_id):
@@ -54,8 +54,8 @@ def get_top_products(conn, limit=5):
                 products.name, 
                 SUM(order_items.quantity)
             FROM orders
-            INNER JOIN order_items ON orders.id = order_items.order_id
-            INNER JOIN products ON order_items.product_id = products.id
+            INNER JOIN order_items ON orders.id = order_items.orderid
+            INNER JOIN products ON order_items.productid = products.id
             GROUP BY products.name
             ORDER BY SUM(order_items.quantity) DESC
             LIMIT %s;

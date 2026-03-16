@@ -3,6 +3,49 @@ from user import User
 from order import Order
 from payment import CardPayment, PayPalPayment
 from exceptions import ValidationError
+from database.queries import *
+from database.connection import *
+
+
+def main():
+    try:
+        with PostgresConnection("localhost", "sfmshop", "postgres", "postgres") as conn:
+            if not conn:
+                print("Не удалось подключиться к БД")
+                return
+
+            print("Создаем пользователя...")
+            user_id = create_user(conn, "Сергей Филичкин", "sergo@example.com")
+            print("Создан пользователь номер:", user_id)
+            user = get_user_by_id(conn, user_id)
+            print("Полученный пользователь:", user)
+
+            products = get_all_products(conn)
+            print("\nВсе товары:")
+            for p in products:
+                print(p)
+
+            stats = get_order_statistics(conn)
+            print("\nСтатистика заказов:")
+            for s in stats:
+                print(s)
+
+            # 5 Топ товары
+            top_products = get_top_products(conn)
+            print("\nТоп товаров:")
+            for tp in top_products:
+                print(tp)
+
+            # 6 История заказов пользователя
+            history = get_user_order_history(conn, user_id)
+            print("\nИстория заказов пользователя:")
+            for h in history:
+                print(h)
+
+    except Exception as e:
+        print(f"Ошибка работы программы: {e}")
+
+
 
 def process_order_system():
     user = User("Иван", "ivan@test.com") # hi
@@ -35,4 +78,5 @@ def process_order_system():
 
 
 if __name__ == "__main__":
-    process_order_system()
+    # process_order_system()
+    main()
