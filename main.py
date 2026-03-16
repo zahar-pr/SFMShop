@@ -30,13 +30,11 @@ def main():
             for s in stats:
                 print(s)
 
-            # 5 Топ товары
             top_products = get_top_products(conn)
             print("\nТоп товаров:")
             for tp in top_products:
                 print(tp)
 
-            # 6 История заказов пользователя
             history = get_user_order_history(conn, user_id)
             print("\nИстория заказов пользователя:")
             for h in history:
