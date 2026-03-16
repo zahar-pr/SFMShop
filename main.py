@@ -46,7 +46,7 @@ def main():
 
 
 def process_order_system():
-    user = User("Иван", "ivan@test.com") # hi
+    user = User("Иван", "ivan@test.com")
 
     product1 = Product("Ноутбук", 50000, 2)
     product2 = Product("Мышь", 1500, 3)
