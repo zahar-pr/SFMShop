@@ -2,9 +2,7 @@ from product import Product
 from user import User
 from order import Order
 from payment import CardPayment, PayPalPayment
-from exceptions import ValidationError
-from database.queries import *
-from database.connection import *
+from SFMShop.api.exceptions import ValidationError
 
 
 def main():

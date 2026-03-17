@@ -1,6 +1,6 @@
 from psycopg2 import Error
 
-from database.connection import PostgresConnection
+from SFMShop.database.connection import PostgresConnection
 
 
 def get_orders_with_products(conn, user_id):

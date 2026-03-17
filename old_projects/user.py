@@ -1,4 +1,4 @@
-from exceptions import ValidationError
+from SFMShop.api.exceptions import ValidationError
 
 
 class User:

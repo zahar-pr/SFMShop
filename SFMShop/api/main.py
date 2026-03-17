@@ -4,7 +4,6 @@ import psycopg2
 import uvicorn
 from fastapi import FastAPI, HTTPException, Query
 from psycopg2.extras import RealDictCursor
-from pydantic import BaseModel
 
 
 def get_db_connection():
@@ -15,22 +14,6 @@ def get_db_connection():
         password="postgres",
         cursor_factory=RealDictCursor
     )
-
-
-class ProductCreate(BaseModel):
-    name: str
-    price: float
-    quantity: int = 0
-
-
-class OrderCreate(BaseModel):
-    user_id: int
-    items: list[dict]
-
-
-class UserCreate(BaseModel):
-    name: str
-    email: str
 
 
 app = FastAPI()
